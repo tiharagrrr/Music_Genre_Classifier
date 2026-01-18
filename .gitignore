@@ -1,2 +1,5 @@
 /GTZAN Genre Classification/
 .DS_Store
+/venv
+/.conda
+data.json
