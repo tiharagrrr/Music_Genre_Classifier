@@ -92,3 +92,7 @@ The `data.json` file contains MFCC (Mel-Frequency Cepstral Coefficients) feature
 ### Summary
 - **One entry** = 130 time frames × 13 coefficients = shape `(130, 13)`
 - Each entry represents a single audio segment from a song in the dataset
+
+### Insights
+
+l2 regularisation and dropout fixed the over fitting of the neural network greatly.
