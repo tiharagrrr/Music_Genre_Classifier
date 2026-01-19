@@ -21,8 +21,8 @@ def save_mfcc(dataset_path, json_path, n_mfcc=13, n_fft=2048, hop_length=512, nu
     }
 
     # calculate the number of samples per segment
-    num_samples_per_segmeent = int(SAMPLES_PER_TRACK / num_segments)
-    expected_num_mfcc_vectors_per_segment = math.ceil(num_samples_per_segmeent / hop_length)
+    num_samples_per_segment = int(SAMPLES_PER_TRACK / num_segments)
+    expected_num_mfcc_vectors_per_segment = math.ceil(num_samples_per_segment / hop_length) #aka time steps
 
     #track corrupted files
     corrupted_files = []
@@ -60,8 +60,8 @@ def save_mfcc(dataset_path, json_path, n_mfcc=13, n_fft=2048, hop_length=512, nu
 
                 # process segments extracting mfcc and storing data
                 for k in range (num_segments):
-                    start_sample = num_samples_per_segmeent * k  # calculate start sample for current segment
-                    finish_sample = start_sample + num_samples_per_segmeent  # calculate finish sample for current segment
+                    start_sample = num_samples_per_segment * k  # calculate start sample for current segment
+                    finish_sample = start_sample + num_samples_per_segment  # calculate finish sample for current segment
 
                     mfcc = librosa.feature.mfcc(y=signal[start_sample:finish_sample],
                            sr=sr,
